@@ -21,10 +21,10 @@ class _MainState extends State<JokenPo> {
         title: Text('Joken Po'),
       ),
       body: Center(
-        child: Column(
-          children: [Image.asset('assets/')],
-        ),
-      ),
+          // child: Column(
+          //   children: [Image.asset('assets/')],
+          // ),
+          ),
     );
   }
 }
