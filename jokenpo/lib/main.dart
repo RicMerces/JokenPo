@@ -42,20 +42,81 @@ class _MainState extends State<JokenPo> {
                   children: [
                     Padding(padding: EdgeInsets.all(32)),
                     Image.asset('assets/image/padrao.png'),
-                    Text('Escolha do app'),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Text(
+                        'Escolha do app',
+                        style: TextStyle(
+                          fontSize: 17,
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 Column(
                   children: [
                     Padding(padding: EdgeInsets.all(32)),
                     Image.asset('assets/image/padrao.png'),
-                    Text('Sua Escolha')
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Text(
+                        'Sua escolha',
+                        style: TextStyle(
+                          fontSize: 17,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 50, bottom: 20),
+                  child: Text(
+                    'Selecione um dos sinais de mão para desafiar o app',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Image.asset(
+                          'assets/image/pedra.png',
+                          width: 100,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Image.asset(
+                          'assets/image/papel.png',
+                          width: 100,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Image.asset(
+                          'assets/image/tesoura.png',
+                          width: 100,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
             )
           ],
         ),
