@@ -14,6 +14,33 @@ class JokenPo extends StatefulWidget {
 }
 
 class _MainState extends State<JokenPo> {
+  String _textoInicial = 'Começar JokenPo';
+  var _linkDaImg = 'assets/image/padrao.png';
+
+  void _escolhaUsuario(String userEscolha) {
+    switch (userEscolha) {
+      case 'pedra':
+        setState(() {
+          this._linkDaImg = 'assets/image/pedra.png';
+        });
+        break;
+      case 'papel':
+        setState(() {
+          this._linkDaImg = 'assets/image/papel.png';
+        });
+
+        break;
+      case 'tesoura':
+        setState(() {
+          this._linkDaImg = 'assets/image/tesoura.png';
+        });
+
+        break;
+    }
+  }
+
+  void _escolhaDoApp(String userEscolha) {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +52,10 @@ class _MainState extends State<JokenPo> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(top: 32),
               child: Text(
-                'Começar JokenPo',
+                _textoInicial,
                 style: TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
@@ -41,7 +68,7 @@ class _MainState extends State<JokenPo> {
                 Column(
                   children: [
                     Padding(padding: EdgeInsets.all(32)),
-                    Image.asset('assets/image/padrao.png'),
+                    Image.asset(_linkDaImg),
                     const Padding(
                       padding: EdgeInsets.only(top: 10),
                       child: Text(
@@ -56,7 +83,7 @@ class _MainState extends State<JokenPo> {
                 Column(
                   children: [
                     Padding(padding: EdgeInsets.all(32)),
-                    Image.asset('assets/image/padrao.png'),
+                    Image.asset(_linkDaImg),
                     const Padding(
                       padding: EdgeInsets.only(top: 10),
                       child: Text(
@@ -85,7 +112,7 @@ class _MainState extends State<JokenPo> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => _escolhaUsuario('pedra'),
                       child: Padding(
                         padding: EdgeInsets.all(10),
                         child: Image.asset(
@@ -95,7 +122,7 @@ class _MainState extends State<JokenPo> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => _escolhaUsuario('papel'),
                       child: Padding(
                         padding: EdgeInsets.all(10),
                         child: Image.asset(
@@ -105,7 +132,7 @@ class _MainState extends State<JokenPo> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => _escolhaUsuario('tesoura'),
                       child: Padding(
                         padding: EdgeInsets.all(10),
                         child: Image.asset(
