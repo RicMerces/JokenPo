@@ -37,10 +37,10 @@ class _MainState extends State<JokenPo> {
         break;
     }
 
-    _escolhaDoApp();
+    _escolhaDoApp(userEscolha);
   }
 
-  void _escolhaDoApp() {
+  void _escolhaDoApp(String userEscolha) {
     var opcoes = ['pedra', 'papel', 'tesoura'];
     var numero = Random().nextInt(opcoes.length);
     var escolha = opcoes[numero];
@@ -61,6 +61,28 @@ class _MainState extends State<JokenPo> {
           this._imgEscolhaDoApp = 'assets/image/tesoura.png';
         });
         break;
+    }
+
+    if (escolha == userEscolha) {
+      setState(() {
+        _textoInicial = 'Empate';
+      });
+    }
+
+    if (escolha == 'pedra' && userEscolha == 'tesoura' ||
+        escolha == 'papel' && userEscolha == 'pedra' ||
+        escolha == 'tesoura' && userEscolha == 'papel') {
+      setState(() {
+        _textoInicial = 'Você perdeu :(';
+      });
+    }
+
+    if (escolha == 'tesoura' && userEscolha == 'pedra' ||
+        escolha == 'pedra' && userEscolha == 'papel' ||
+        escolha == 'papel' && userEscolha == 'tesoura') {
+      setState(() {
+        _textoInicial = 'Você venceu :)';
+      });
     }
   }
 
