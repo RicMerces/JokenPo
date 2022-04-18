@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'dart:math';
 
 void main() {
   runApp(MaterialApp(
@@ -16,6 +16,7 @@ class JokenPo extends StatefulWidget {
 class _MainState extends State<JokenPo> {
   String _textoInicial = 'Começar JokenPo';
   var _linkDaImg = 'assets/image/padrao.png';
+  var _imgEscolhaDoApp = 'assets/image/padrao.png';
 
   void _escolhaUsuario(String userEscolha) {
     switch (userEscolha) {
@@ -28,18 +29,40 @@ class _MainState extends State<JokenPo> {
         setState(() {
           this._linkDaImg = 'assets/image/papel.png';
         });
-
         break;
       case 'tesoura':
         setState(() {
           this._linkDaImg = 'assets/image/tesoura.png';
         });
+        break;
+    }
 
+    _escolhaDoApp();
+  }
+
+  void _escolhaDoApp() {
+    var opcoes = ['pedra', 'papel', 'tesoura'];
+    var numero = Random().nextInt(opcoes.length);
+    var escolha = opcoes[numero];
+
+    switch (escolha) {
+      case 'pedra':
+        setState(() {
+          this._imgEscolhaDoApp = 'assets/image/pedra.png';
+        });
+        break;
+      case 'papel':
+        setState(() {
+          this._imgEscolhaDoApp = 'assets/image/papel.png';
+        });
+        break;
+      case 'tesoura':
+        setState(() {
+          this._imgEscolhaDoApp = 'assets/image/tesoura.png';
+        });
         break;
     }
   }
-
-  void _escolhaDoApp(String userEscolha) {}
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +91,7 @@ class _MainState extends State<JokenPo> {
                 Column(
                   children: [
                     Padding(padding: EdgeInsets.all(32)),
-                    Image.asset(_linkDaImg),
+                    Image.asset(_imgEscolhaDoApp),
                     const Padding(
                       padding: EdgeInsets.only(top: 10),
                       child: Text(
